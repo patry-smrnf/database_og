@@ -1,0 +1,27 @@
+# ninja log v6
+18	1096	7681579539221052	_deps/fmt-build/CMakeFiles/fmt.dir/src/os.cc.obj	2ba0b6810ff7cee2
+19	1672	7681630436224613	CMakeFiles/database_OG.dir/Databases/database.cpp.obj	5e16d3228bc392d6
+15	1513	7681579539190465	_deps/fmt-build/CMakeFiles/fmt.dir/src/format.cc.obj	37605129f5a62c7
+21	2849	7681630206288212	CMakeFiles/database_OG.dir/Misc/app.cpp.obj	6c2f95c776d3e49f
+8	79	7681579699906727	_deps/fmt-build/fmtd.lib	b1763cfc43aa831a
+23	2958	7681630436265716	CMakeFiles/database_OG.dir/Databases/database_creator.cpp.obj	58a94099617a42b2
+10	1093	7681631282026136	CMakeFiles/database_OG.dir/main.cpp.obj	a452c3224b6a3a9
+1094	1384	7681631292861332	database_OG.exe	3d4a1da54d2e1978
+11	1558	7681643304828977	CMakeFiles/database_OG.dir/main.cpp.obj	a452c3224b6a3a9
+24	2196	7681643304962222	CMakeFiles/database_OG.dir/Databases/database_reader.cpp.obj	b89c7f7db3eddf2c
+20	3275	7681643304922205	CMakeFiles/database_OG.dir/Databases/database_creator.cpp.obj	58a94099617a42b2
+16	3600	7681643304879934	CMakeFiles/database_OG.dir/Databases/database.cpp.obj	5e16d3228bc392d6
+3600	3906	7681643340724956	database_OG.exe	1b4bccdee29fe6e2
+10	684	7681643973776037	CMakeFiles/database_OG.dir/main.cpp.obj	a452c3224b6a3a9
+685	812	7681643980526316	database_OG.exe	1b4bccdee29fe6e2
+12	989	7681644779455743	CMakeFiles/database_OG.dir/main.cpp.obj	a452c3224b6a3a9
+16	2360	7681644779496392	CMakeFiles/database_OG.dir/Databases/database.cpp.obj	5e16d3228bc392d6
+2361	2615	7681644802934662	database_OG.exe	1b4bccdee29fe6e2
+12	710	7681645720005953	CMakeFiles/database_OG.dir/main.cpp.obj	a452c3224b6a3a9
+711	836	7681645726992903	database_OG.exe	1b4bccdee29fe6e2
+3	3227	7681646731190806	CMakeFiles/database_OG.dir/Databases/database.cpp.obj	5e16d3228bc392d6
+3228	3500	7681646763445809	database_OG.exe	1b4bccdee29fe6e2
+15	2502	7681647517863292	CMakeFiles/database_OG.dir/Databases/database.cpp.obj	5e16d3228bc392d6
+2503	2734	7681647542756160	database_OG.exe	1b4bccdee29fe6e2
+10	711	7681647797147293	CMakeFiles/database_OG.dir/main.cpp.obj	a452c3224b6a3a9
+711	901	7681647804158266	database_OG.exe	1b4bccdee29fe6e2
