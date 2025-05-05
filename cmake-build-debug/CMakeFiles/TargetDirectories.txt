@@ -1,0 +1,3 @@
+C:/Users/patry/CLionProjects/database_OG/cmake-build-debug/CMakeFiles/database_OG.dir
+C:/Users/patry/CLionProjects/database_OG/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/patry/CLionProjects/database_OG/cmake-build-debug/CMakeFiles/rebuild_cache.dir
