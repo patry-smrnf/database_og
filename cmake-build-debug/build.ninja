@@ -89,6 +89,14 @@ build CMakeFiles\database_OG.dir\Databases\database_reader.cpp.obj: CXX_COMPILER
   TARGET_COMPILE_PDB = CMakeFiles\database_OG.dir\
   TARGET_PDB = database_OG.pdb
 
+build CMakeFiles\database_OG.dir\Databases\database_methods.cpp.obj: CXX_COMPILER__database_OG_unscanned_Debug C$:\Users\patry\CLionProjects\database_OG\Databases\database_methods.cpp || cmake_object_order_depends_target_database_OG
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -Zi /utf-8
+  INCLUDES = -IC:\Users\patry\CLionProjects\database_OG\cmake-build-debug\_deps\fmt-src\include
+  OBJECT_DIR = CMakeFiles\database_OG.dir
+  OBJECT_FILE_DIR = CMakeFiles\database_OG.dir\Databases
+  TARGET_COMPILE_PDB = CMakeFiles\database_OG.dir\
+  TARGET_PDB = database_OG.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target database_OG
@@ -97,7 +105,7 @@ build CMakeFiles\database_OG.dir\Databases\database_reader.cpp.obj: CXX_COMPILER
 #############################################
 # Link the executable database_OG.exe
 
-build database_OG.exe: CXX_EXECUTABLE_LINKER__database_OG_Debug CMakeFiles\database_OG.dir\main.cpp.obj CMakeFiles\database_OG.dir\Misc\app.cpp.obj CMakeFiles\database_OG.dir\Databases\database.cpp.obj CMakeFiles\database_OG.dir\Databases\database_creator.cpp.obj CMakeFiles\database_OG.dir\Databases\database_reader.cpp.obj | _deps\fmt-build\fmtd.lib || _deps\fmt-build\fmtd.lib
+build database_OG.exe: CXX_EXECUTABLE_LINKER__database_OG_Debug CMakeFiles\database_OG.dir\main.cpp.obj CMakeFiles\database_OG.dir\Misc\app.cpp.obj CMakeFiles\database_OG.dir\Databases\database.cpp.obj CMakeFiles\database_OG.dir\Databases\database_creator.cpp.obj CMakeFiles\database_OG.dir\Databases\database_reader.cpp.obj CMakeFiles\database_OG.dir\Databases\database_methods.cpp.obj | _deps\fmt-build\fmtd.lib || _deps\fmt-build\fmtd.lib
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = _deps\fmt-build\fmtd.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

@@ -27,12 +27,14 @@ public:
     static std::vector<Type> parse_fields(std::string const line);
     static std::vector<std::string> parse_values_row(std::string line);
 
+    //[!-- Tworzy obiekt tablicy wykorzystujac wartosci i typy, pozyteczne w chuj --!]
     static Table make_it_table(std::string name, std::vector<Type> types, std::vector<std::vector<std::string>> values);
 
 };
 
 class database_methods {
-
+public:
+    static void print_table_details(Table& table);
 };
 
 class database {
@@ -43,6 +45,8 @@ public:
     void new_database_setup();
     void load_database(const std::string &path);
 
+    //[!-- Metody wykorzystywane przez obiekt --!]
+    Table get_table_by_name(const std::string& name) const;
 private:
     void tables_setup(std::ofstream& database_file, std::vector<Table>& tables);
 };

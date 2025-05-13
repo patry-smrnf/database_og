@@ -8,7 +8,6 @@ auto main()-> int {
     user_session_app.setup();
     database user_database(user_session_app);
 
-
     //[!-- jesli user juz ma jakies bazy danych --!]
     if (!user_session_app.is_it_first_time) {
         fmt::print("\n[!] Your databases: \n");
@@ -69,8 +68,7 @@ auto main()-> int {
            "    [1] Show everything from your table \n");
 
     for (auto i : user_database.tables) {
-        fmt::print("[+] Table name: {}\n", i.name);
+        database_methods::print_table_details(i);
     }
-
 
 }

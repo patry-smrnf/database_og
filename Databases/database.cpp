@@ -47,11 +47,11 @@ void database::tables_setup(std::ofstream &database_file, std::vector<Table>& ta
         while (true) {
             fmt::print("[?] U wanna continue and fill the tables? y | n: ");
             std::cin >> choice;
-            if (choice == "n") {
-                break;
-            }
             if (choice == "y") {
                 database_file << database_creator::create_values_header(typy, values) << "\n";
+            }
+            else {
+                break;
             }
         }
 
@@ -70,12 +70,12 @@ void database::tables_setup(std::ofstream &database_file, std::vector<Table>& ta
         std::vector<Column> columns;
         for (auto y = 0; y < typy.size(); y++) {
             Column col;
-            col.type = typy[y];               // assign corresponding Type
-            col.values = helper_vector[y];    // assign column values
+            col.type = typy[y];
+            col.values = helper_vector[y];
             columns.push_back(col);
         }
 
-        temp_table.columns = columns; // Assign to the table
+        temp_table.columns = columns;
         tables.push_back(temp_table);
     }
 
@@ -155,3 +155,11 @@ void database::load_database(const std::string &path) {
 
 }
 
+Table database::get_table_by_name(const std::string& name) const {
+    for (auto x :this->tables) {
+        if (x.name == name) {
+            return x;
+        }
+    }
+    return Table{"", std::vector<Column>{}};
+}
