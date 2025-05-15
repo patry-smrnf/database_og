@@ -83,7 +83,6 @@ void database::tables_setup(std::ofstream &database_file, std::vector<Table>& ta
 
 }
 
-
 void database::new_database_setup() {
     namespace fs = std::filesystem;
 
@@ -155,7 +154,7 @@ void database::load_database(const std::string &path) {
 
 }
 
-Table database::get_table_by_name(const std::string& name) const {
+Table database::get_table_by_name(const std::string& name) {
     for (auto x :this->tables) {
         if (x.name == name) {
             return x;

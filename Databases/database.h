@@ -46,7 +46,7 @@ public:
     void load_database(const std::string &path);
 
     //[!-- Metody wykorzystywane przez obiekt --!]
-    Table get_table_by_name(const std::string& name) const;
+    Table get_table_by_name(const std::string& name);
 private:
     void tables_setup(std::ofstream& database_file, std::vector<Table>& tables);
 };

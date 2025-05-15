@@ -2,8 +2,14 @@
 #include "Misc/app.h"
 #include <fmt/base.h>
 #include "Databases/database.h"
+#include "query/query.h"
 
 auto main()-> int {
+
+    query_misc::tokenize("SELECT id.users, username.logs, guwno FROM users, logs");
+
+
+    /*
     app user_session_app;
     user_session_app.setup();
     database user_database(user_session_app);
@@ -65,10 +71,8 @@ auto main()-> int {
     //[!-- STAGE 2, dzialania na bazie --!]
     fmt::print("\n[?] What u wanna do?? \n");
     fmt::print(""
-           "    [1] Show everything from your table \n");
+           "    [1] Show everything from your table "
+           "    [2] Query operations \n");
 
-    for (auto i : user_database.tables) {
-        database_methods::print_table_details(i);
-    }
-
+    */
 }
