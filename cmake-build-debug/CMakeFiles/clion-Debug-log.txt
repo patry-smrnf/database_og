@@ -1,6 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2025.1.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\patry\CLionProjects\database_og -B C:\Users\patry\CLionProjects\database_og\cmake-build-debug
--- {fmt} version: 11.1.4
--- Build type: Debug
--- Configuring done (0.3s)
--- Generating done (0.1s)
--- Build files have been written to: C:/Users/patry/CLionProjects/database_og/cmake-build-debug
