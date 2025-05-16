@@ -1,6 +1,6 @@
-"C:\Program Files\JetBrains\CLion 2024.3.4\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2024.3.4/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\patry\CLionProjects\database_OG -B C:\Users\patry\CLionProjects\database_OG\cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2025.1.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\patry\CLionProjects\database_og -B C:\Users\patry\CLionProjects\database_og\cmake-build-debug
 -- {fmt} version: 11.1.4
 -- Build type: Debug
--- Configuring done (0.8s)
+-- Configuring done (0.3s)
 -- Generating done (0.1s)
--- Build files have been written to: C:/Users/patry/CLionProjects/database_OG/cmake-build-debug
+-- Build files have been written to: C:/Users/patry/CLionProjects/database_og/cmake-build-debug

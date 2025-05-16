@@ -3,10 +3,15 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include "query_structures.h"
+#include "../Databases/database.h"
 
-enum class tokens_types {
-    SELECT, FROM, WHERE, INVALID
-};
+//[!-- TO DO LIST --!]
+//  [+] Czytac argumenty, rozrozniac je od komend
+//  [ ] Stworzyc SELECT dla wielu tabel
+//  [ ] Stworzyc obsluge WHERE
+//  [ ] Dodac mozwliwosc oblusgi AND
+
 
 static const std::unordered_map<std::string, tokens_types> token_map = {
     { "SELECT", tokens_types::SELECT },
@@ -14,19 +19,13 @@ static const std::unordered_map<std::string, tokens_types> token_map = {
     { "WHERE",  tokens_types::WHERE  }
 };
 
-struct command {
-    std::string name;
-    std::vector<std::string> args;
-};
-
 class query_obj {
 public:
-    std::vector<command> commands;
+    database db_user;
+    explicit query_obj(const database& db): db_user(db) {}
+
+    void exec(const std::string &RAWquery);
 };
 
-class query_misc : public query_obj {
-public:
-    static void tokenize(const std::string &RAWquery);
-};
 
 #endif //QUERY_H

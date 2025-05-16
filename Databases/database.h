@@ -47,6 +47,11 @@ public:
 
     //[!-- Metody wykorzystywane przez obiekt --!]
     Table get_table_by_name(const std::string& name);
+    bool does_column_exists(Table table, std::string column_name);
+    data_types get_column_type(Table table, std::string column_name);
+    Column get_column (Table table, std::string column_name);
+    std::vector<std::string> get_column_values_by_name(Table table, std::string column_name);
+
 private:
     void tables_setup(std::ofstream& database_file, std::vector<Table>& tables);
 };

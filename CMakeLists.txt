@@ -24,5 +24,6 @@ add_executable(database_OG main.cpp
         Databases/database_reader.cpp
         Databases/database_methods.cpp
         query/query.cpp
-        query/query.h)
+        query/query.h
+        query/query_structures.h)
 target_link_libraries(database_OG fmt)

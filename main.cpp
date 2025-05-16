@@ -6,7 +6,14 @@
 
 auto main()-> int {
 
-    query_misc::tokenize("SELECT id.users, username.logs, guwno FROM users, logs");
+    app user_session_app;
+    user_session_app.setup();
+    database user_database(user_session_app);
+    user_database.load_database("C:\\og_base\\nigga.ogbase");
+
+
+    query_obj user_query(user_database);
+    user_query.exec("SELECT id.users, date.niewiem, username.users FROM users, niewiem WHERE id.users = 2");
 
 
     /*

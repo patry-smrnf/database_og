@@ -160,5 +160,43 @@ Table database::get_table_by_name(const std::string& name) {
             return x;
         }
     }
-    return Table{"", std::vector<Column>{}};
+    return Table{"INVALID", std::vector<Column>{}};
 }
+
+bool database::does_column_exists(Table table, std::string column_name) {
+    for (auto kolumny : table.columns) {
+        if (kolumny.type.name == column_name) {
+            return true;
+        }
+    }
+    return false;
+}
+
+data_types database::get_column_type(Table table, std::string column_name) {
+    for (auto kolumny : table.columns) {
+        if (kolumny.type.name == column_name) {
+            if (kolumny.type.name == "INTEGER") { return data_types::INTEGER; }
+            if (kolumny.type.name == "VARCHAR") { return data_types::VARCHAR; }
+            if (kolumny.type.name == "TIMESTAMP") { return data_types::TIMESTAMP; }
+            return data_types::INVALID;
+        }
+    }
+    return data_types::INVALID;
+}
+
+Column database::get_column(Table table, std::string column_name) {
+    for (auto kolumny : table.columns) {
+        if (kolumny.type.name == column_name) {
+            return kolumny;
+        }
+    }
+}
+
+std::vector<std::string> database::get_column_values_by_name(Table table, std::string column_name) {
+    for (auto kolumny : table.columns) {
+        if (kolumny.type.name == column_name) {
+            return kolumny.values;
+        }
+    }
+}
+
