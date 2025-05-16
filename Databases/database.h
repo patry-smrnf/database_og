@@ -1,5 +1,6 @@
 #ifndef DATABASE_H
 #define DATABASE_H
+#include <map>
 #include <string>
 
 #include "database_structures.h"
@@ -34,6 +35,8 @@ public:
 
 class database_methods {
 public:
+    static void print_mixed_tables(std::vector<std::pair<std::string,std::string>> table_column, std::vector<Table>& tables_data);
+    static void print_table(Table table);
     static void print_table_details(Table& table);
 };
 

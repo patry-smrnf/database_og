@@ -85,3 +85,4 @@ Table database_reader::make_it_table(std::string name, std::vector<Type> types, 
 
     return table_output;
 }
+

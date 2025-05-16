@@ -9,11 +9,11 @@ auto main()-> int {
     app user_session_app;
     user_session_app.setup();
     database user_database(user_session_app);
-    user_database.load_database("C:\\og_base\\nigga.ogbase");
+    user_database.load_database("C:\\og_base\\testowa2.ogbase");
 
 
     query_obj user_query(user_database);
-    user_query.exec("SELECT id.users, date.niewiem, username.users FROM users, niewiem WHERE id.users = 2");
+    user_query.exec("SELECT id username FROM sraczka WHERE username = 'sraka'");
 
 
     /*

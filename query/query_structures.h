@@ -5,20 +5,7 @@
 
 #include "../Databases/database_structures.h"
 
-enum class WHERE_OPERATORS {
-    EQUAL, BIGGER_EQUAL, LOWER_EQUAL, DIFFERENT, LOWER, BIGGER, INVALID
-};
 
-struct WHERE_STATMNT_STRUCTURE {
-    std::string value1;
-    std::string value2;
-    WHERE_OPERATORS operation;
-};
-
-struct SELECT_structure {
-    std::string from;
-    std::vector<std::string> data;
-};
 
 enum class tokens_types {
     SELECT, FROM, WHERE, INVALID
