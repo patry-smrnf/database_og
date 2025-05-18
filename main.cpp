@@ -13,7 +13,7 @@ auto main()-> int {
 
 
     query_obj user_query(user_database);
-    user_query.exec("SELECT username FROM sraczka WHERE id = 232");
+    user_query.exec("SELECT username FROM sraczka WHERE id = 2");
 
 
     /*
