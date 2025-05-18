@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.26)
 project(database_OG)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -23,9 +23,17 @@ add_executable(database_OG main.cpp
         Databases/database_structures.h
         Databases/database_reader.cpp
         Databases/database_methods.cpp
-        query/query.cpp
-        query/query.h
-        query/query_structures.h
-        query/Misc/Where_STATEMENT.cpp
-        query/Misc/Where_STATEMENT.h)
+        DQL/DQL.cpp
+        DQL/DQL.h
+        DQL/DQL_structures.h
+        DQL/Misc/Where_STATEMENT.cpp
+        DQL/Misc/Where_STATEMENT.h
+        DDL/DDL.cpp
+        DDL/DDL.h
+        DDL/DDL_structures.h
+        DDL/DDL_CREATE.cpp
+        DDL/DDL_DROP.cpp
+        DML/DML.cpp
+        DML/DML.h
+)
 target_link_libraries(database_OG fmt)

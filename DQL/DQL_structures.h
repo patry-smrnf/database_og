@@ -11,7 +11,7 @@ enum class tokens_types {
     SELECT, FROM, WHERE, INVALID
 };
 
-//[!-- Structura kazdej komendy w query, czyli oddzielny obiekt dla SELECT ..., FROM... itd --!]
+//[!-- Structura kazdej komendy w DQL, czyli oddzielny obiekt dla SELECT ..., FROM... itd --!]
 struct command_structure {
     std::string name;
     std::vector<std::string> args;

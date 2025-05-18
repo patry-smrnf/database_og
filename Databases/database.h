@@ -54,6 +54,7 @@ public:
     data_types get_column_type(Table table, std::string column_name);
     Column get_column (Table table, std::string column_name);
     std::vector<std::string> get_column_values_by_name(Table table, std::string column_name);
+    std::string path;
 
 
 private:

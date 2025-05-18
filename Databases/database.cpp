@@ -149,8 +149,9 @@ void database::load_database(const std::string &path) {
         }
     }
     this->tables.push_back(database_reader::make_it_table(TEMP_name_table, types, values_NOT_SORTED));
-
+    this->path = path;
     fmt::print("\n[+] {} Loaded succefully\n", path);
+    file.close();
 
 }
 

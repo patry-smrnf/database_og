@@ -3,14 +3,14 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "query_structures.h"
+#include "DQL_structures.h"
 #include "../Databases/database.h"
 
 //[!-- TO DO LIST --!]
 //  [+] Czytac argumenty, rozrozniac je od komend
-//  [ ] Stworzyc SELECT dla wielu tabel
-//  [ ] Stworzyc obsluge WHERE
-//  [ ] Dodac mozwliwosc oblusgi AND
+//  [+] Stworzyc SELECT dla wielu tabel
+//  [+] Stworzyc obsluge WHERE
+//  [+] Dodac mozwliwosc oblusgi AND
 
 
 static const std::unordered_map<std::string, tokens_types> token_map = {
@@ -19,12 +19,12 @@ static const std::unordered_map<std::string, tokens_types> token_map = {
     { "WHERE",  tokens_types::WHERE  }
 };
 
-class query_obj {
+class DQL_obj {
 public:
     database db_user;
-    explicit query_obj(const database& db): db_user(db) {}
+    explicit DQL_obj(const database& db): db_user(db) {}
 
-    void exec(const std::string &RAWquery);
+    void exec_dql(const std::string &RAWquery);
 };
 
 
