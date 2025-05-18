@@ -6,6 +6,20 @@
 
 #include "fmt/printf.h"
 
+static std::vector<std::string> fix_my_values(std::vector<std::string> values)
+{
+    std::vector<std::string> result;
+    for (auto i : values) {
+        if (i[0] == ' ') {
+            result.push_back(i.substr(1));
+        }
+        else {
+            result.push_back(i);
+        }
+    }
+    return result;
+}
+
 static std::string to_upper(const std::string &s) {
     std::string u; u.reserve(s.size());
     for (unsigned char c : s) u.push_back(std::toupper(c));
@@ -131,6 +145,7 @@ void query_obj::exec(const std::string &RAWquery) {
         if (SELECT_args_FIELD[0] == "*") {
             if (SELECT_args_FIELD.size() == 1) {
                 database_methods::print_table(this->db_user.get_table_by_name(FROM_args_FIELD[0]));
+                exit(1);
             }
             else {
                 fmt::print("[-] Wrong request, using '*' not allowed when u import from more than one data\n");
@@ -210,7 +225,8 @@ void query_obj::exec(const std::string &RAWquery) {
 
         //[!-- ciezkie, Tworzenie nowych tablic spelniajacych warunki --!]
         Table output_table;
-        std::vector<Column>kolumny_do_pobrania;
+        output_table.name = "WHERE OUTPUT";
+        std::vector<Column>kolumny_do_pobrania; // [!-- Kolumny do outputowej tabeli ktora bedzie printowana
 
         for (auto i : PARSED_where_statements) {
             //[!-- W tym jezyku pierwsza wartosc musi byc odniesieniem sie do kolumny w bazie danych
@@ -218,30 +234,53 @@ void query_obj::exec(const std::string &RAWquery) {
 
             std::vector<std::string> correct_values;
 
-            Column temp_column_out;
+            Column temp_column_out;  //<-- Kolumna dla warunku podanego przez usera
 
-            temp_column_out.type.name = i.val1 + " " + i.val2;
+            temp_column_out.type.name = i.val1 + " " + Where_STATEMENT::operator_to_string(i.operatorWhere) +" " + i.val2;  //<-- Przypisanie nazwy tej kolumny, nazwa bedzie zawierac warunek
+            temp_column_out.type.type = "WHERE";
 
+            //Dane na ktorych beda robione operacje
             if (more_than_one_TABLE) {
-                auto dotPos = i.val1.find('.');
-                auto column_name = i.val1.substr(0, dotPos);
-                auto table_name = i.val1.substr(dotPos + 1);
-
-                values_of_val1 = this->db_user.get_column_values_by_name(this->db_user.get_table_by_name(table_name), column_name);
+                fmt::print("[-] Wrong WHERE statement, u cant do WHERE operations when theres more than one table imported \n");
+                exit(1);
             }
             else {
-                values_of_val1 = this->db_user.get_column_values_by_name(this->db_user.get_table_by_name(FROM_args_FIELD[0]), i.val1);
+                if (i.val1.find('.') != std::string::npos) {
+                    fmt::print("[-] Wrong WHERE statement, no need to precise which table if you import only one \n");
+                    exit(1);
+                }
+                values_of_val1 = fix_my_values(this->db_user.get_column_values_by_name(this->db_user.get_table_by_name(FROM_args_FIELD[0]), i.val1));
             }
 
+            //[!-- Pobieram index poprawnych wartosci, biore wartosci z tego samego samego indexu
+            std::vector<Column> rest_of_columns; // <-- reszta kolumn ktore zostaly selectowane przez usera
+            std::vector<Column> output_columns; // <-- reszta kolumn ktore zostaly selectowane przez usera ale rekordy sa z indexu gdzie warunek spelniony
+            std::vector<int> correct_indexes; // <-- Poprawne indexy, spelniajace warunki
+
+            for (const auto& selected : select_list) { // <-- Przypisywanie wartosci do kolumn
+                rest_of_columns.push_back(this->db_user.get_column(this->db_user.get_table_by_name(selected.first), selected.second));
+            }
             switch (i.operatorWhere) {
                 case WHERE_operator::EQUAL:
                     std::erase(i.val2, '\'');
 
-                    for (auto values : values_of_val1) {
-                        if (values == i.val2) {
-                            fmt::print("!!! {}", values);
-                            correct_values.push_back(values);
+                    for (auto count = 0 ; count < values_of_val1.size(); count++) {
+                        if (values_of_val1[count] == i.val2) {
+                            correct_values.push_back(values_of_val1[count]);  //[!-- Zapisanie poprawnych wartosci do nowej kolumny
+                            correct_indexes.push_back(count); //[!-- Zapisanie poprawnych indexow spelniajacych warunek
                         }
+                    }
+
+                    for (auto column : rest_of_columns) {  //[!-- Tworzenie nowych kolumn na bazie wybranych kolumn z wybranymi dokladnie indexami
+                        Column temp_column_out;
+                        std::vector<std::string> temp_values_for_the_column;
+
+                        temp_column_out.type = column.type;
+                        for (auto indexes : correct_indexes) {
+                            temp_values_for_the_column.push_back(column.values[indexes]);
+                        }
+                        temp_column_out.values = temp_values_for_the_column;
+                        output_columns.push_back(temp_column_out); // <-- Zapisanie kolumny z wartoscami z indexow do listy kolumm
                     }
                     break;
                 case WHERE_operator::NOT:
@@ -260,8 +299,11 @@ void query_obj::exec(const std::string &RAWquery) {
                     exit(1);
             }
 
-            temp_column_out.values = correct_values;
+            temp_column_out.values = correct_values;  //<-- Przypisanie wartosci z warunku podanego przez user
             kolumny_do_pobrania.push_back(temp_column_out);
+            for (auto kolumna : output_columns) {
+                kolumny_do_pobrania.push_back(kolumna);
+            }
 
         }
 

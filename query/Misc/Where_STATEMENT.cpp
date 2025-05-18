@@ -25,6 +25,15 @@ WHERE_operator Where_STATEMENT::convert_to_operator(const std::string &operator_
     }
 }
 
+std::string Where_STATEMENT::operator_to_string(const WHERE_operator &operator_) {
+    for (const auto&[fst, snd] : operator_map) {
+        if (snd == operator_) {
+            return fst;
+        }
+    }
+    return "Blad"; // Not found
+}
+
 bool Where_STATEMENT::is_number(const std::string& value) {
 
     double test;

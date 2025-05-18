@@ -18,4 +18,5 @@ struct Table {
     std::vector<Column> columns;
 };
 
+
 #endif //DATABASE_STRUCTURES_H

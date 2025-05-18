@@ -55,6 +55,7 @@ public:
     Column get_column (Table table, std::string column_name);
     std::vector<std::string> get_column_values_by_name(Table table, std::string column_name);
 
+
 private:
     void tables_setup(std::ofstream& database_file, std::vector<Table>& tables);
 };

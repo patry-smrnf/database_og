@@ -19,6 +19,7 @@ enum class LOGIC_where {
 class Where_STATEMENT {
     public:
     static WHERE_operator convert_to_operator(const std::string& operator_);
+    static std::string operator_to_string(const WHERE_operator& operator_);
     static bool is_number(const std::string& value);
     static bool is_string(const std::string& value);
 };
