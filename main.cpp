@@ -16,26 +16,6 @@ void create(std::string path) {
 }
 
 auto main()-> int {
-
-    /*
-    app user_session_app;
-    user_session_app.setup();
-    database user_database(user_session_app);
-    user_database.load_database("C:\\og_base\\testowa2.ogbase");
-
-    std::string komenda;
-    std::getline(std::cin, komenda);  // reads entire line including spaces
-    DQL_obj user_query(user_database);
-    user_query.exec_dql(komenda);
-
-
-    // DML_obj user_query(user_database);
-    // user_query.exec_dml("INSERT niggers VALUES ( sraka niewie )");
-
-
-    */
-
-
     app user_session_app;
     user_session_app.setup();
     database user_database(user_session_app);
